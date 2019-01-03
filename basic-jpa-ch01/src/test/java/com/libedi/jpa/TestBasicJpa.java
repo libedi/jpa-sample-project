@@ -37,8 +37,12 @@ public class TestBasicJpa {
 		emf.close();
 	}
 	
+	/**
+	 * Ch.01
+	 * @throws Exception
+	 */
 	@Test
-	public void testBasicJpa() throws Exception {
+	public void ch01_testBasicJpa() throws Exception {
 		final EntityTransaction tx = em.getTransaction();
 		
 		try {
