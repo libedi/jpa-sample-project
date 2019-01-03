@@ -34,6 +34,36 @@
 - persistence.xml 에 있는 정보를 바탕으로 생성.
 - thread-safe하며, 생성비용이 커 1개만 만들어서 여러 스레드에서 공유.
 - 생성코드  
-~~~
+`
 Persistence.createEntityManagerFactory("jpatest");
+`
+## 5. 영속성 컨텍스트
+- 엔티티를 영구 저장하는 환경.
+- 엔티티 매니저로 엔티티를 저장/조회하면, 엔티티 매니저는 영속성 컨텍스트에 엔티티를 보관/관리한다.
+- 엔티티 매니저를 생성할 때 하나 만들어진다.
+- 엔티티 매니저를 통해 접근 및 관리.
 ~~~
+EntityManage em = emf.createEntityManager();
+em.persist(member);
+~~~
+## 6. 엔티티 생명주기
+- 비영속 : 영속성 컨텍스트와 전혀 관계없는 순수 객체 상태.  
+`
+Member member = new Member();
+`
+- 영속 : 영속성 컨텍스트가 관리하는 상태
+~~~
+em.persist()
+em.find() / JPQL
+em.merge()
+~~~
+- 준영속 : 영속성 컨텍스트에서 분리된 상태
+~~~
+em.detach()
+em.clear()
+em.close()
+~~~
+- 삭제 :  엔티티를 영속성 컨텍스트와 데이터베이스에서 삭제한다.
+`
+em.remove(member);
+`
