@@ -34,6 +34,6 @@
 - persistence.xml 에 있는 정보를 바탕으로 생성.
 - thread-safe하며, 생성비용이 커 1개만 만들어서 여러 스레드에서 공유.
 - 생성코드  
-`
+~~~
 Persistence.createEntityManagerFactory("jpatest");
-`
+~~~
