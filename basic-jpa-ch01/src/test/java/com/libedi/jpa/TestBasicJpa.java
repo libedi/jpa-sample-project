@@ -80,4 +80,9 @@ public class TestBasicJpa {
 			tx.rollback();
 		}
 	}
+	
+	@Test
+	public void ch04_testEntityMapping() throws Exception {
+		
+	}
 }

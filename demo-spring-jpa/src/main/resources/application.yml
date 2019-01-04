@@ -1,3 +1,4 @@
 spring:
   application:
     name: demo-spring-jpa
+  h2:    console:      enabled: true
