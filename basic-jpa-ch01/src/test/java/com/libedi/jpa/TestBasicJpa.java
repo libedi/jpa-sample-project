@@ -41,7 +41,7 @@ public class TestBasicJpa {
 	 * Ch.01
 	 * @throws Exception
 	 */
-	@Test
+//	@Test
 	public void ch01_testBasicJpa() throws Exception {
 		final EntityTransaction tx = em.getTransaction();
 		
