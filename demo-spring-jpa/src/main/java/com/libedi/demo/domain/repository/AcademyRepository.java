@@ -10,6 +10,6 @@ import com.libedi.demo.domain.Academy;
  * @author Sang-jun, Park
  * @since 2019. 02. 07
  */
-public interface AcademyRepository extends JpaRepository<Academy, Long> {
+public interface AcademyRepository extends JpaRepository<Academy, Long>, AcademyRepositoryCustom {
 
 }

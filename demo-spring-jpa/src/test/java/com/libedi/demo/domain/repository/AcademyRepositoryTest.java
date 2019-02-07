@@ -51,4 +51,20 @@ public class AcademyRepositoryTest {
         assertThat(result.get(0).getAddress()).isEqualTo(address);
     }
 
+    @Test
+    public void test_querdslCustom() {
+        // given
+        String name = "libedi";
+        String address = "libedi@gmail.com";
+        academyRepository.save(Academy.builder().name(name).address(address).build());
+
+        // when
+        List<Academy> result = academyRepository.findByName(name);
+
+        // then
+        assertThat(result).isNotEmpty();
+        assertThat(result.size()).isEqualTo(1);
+        assertThat(result.get(0).getAddress()).isEqualTo(address);
+    }
+
 }
