@@ -1,4 +1,4 @@
-package com.libedi.demo.domain.posts;
+package com.libedi.demo.domain;
 
 import java.time.LocalDateTime;
 

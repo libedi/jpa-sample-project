@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.libedi.demo.domain.posts.Posts;
+import com.libedi.demo.domain.Posts;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

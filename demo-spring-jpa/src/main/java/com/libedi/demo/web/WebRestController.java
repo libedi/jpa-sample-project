@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.libedi.demo.domain.posts.PostsRepository;
+import com.libedi.demo.domain.repository.PostsRepository;
 import com.libedi.demo.util.OptionalSupport;
 import com.libedi.demo.util.ResourceNotFoundException;
 

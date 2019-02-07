@@ -1,7 +1,9 @@
-package com.libedi.demo.domain.posts;
+package com.libedi.demo.domain.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.history.RevisionRepository;
+
+import com.libedi.demo.domain.Posts;
 
 /**
  * PostsRepository
