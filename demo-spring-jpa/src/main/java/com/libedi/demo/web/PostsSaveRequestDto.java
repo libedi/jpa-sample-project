@@ -17,6 +17,7 @@ import lombok.ToString;
 @ToString
 public class PostsSaveRequestDto {
 
+    private Long id;
     private String title;
     private String content;
     private String author;
@@ -26,7 +27,7 @@ public class PostsSaveRequestDto {
     private LocalDateTime time;
 
     public Posts toEntity() {
-        return Posts.builder().title(title).content(content).author(author).build();
+        return Posts.builder().title(title).content(content).author(author).time(time).build();
     }
 
 }

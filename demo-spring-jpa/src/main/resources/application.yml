@@ -1,4 +1,8 @@
 spring:
   application:
     name: demo-spring-jpa
-  h2:    console:      enabled: true
+  h2:    console:      enabled: true  jpa:    properties:      org:
+        hibernate:
+          envers:
+            audit_table_suffix: _HISTORY  # Envers를 이용한 히스토리 테이블의 suffix를 변경할 수 있다. (default: _AUD)
+            modified_flag_suffix: _CHANGED # 변경컬럼 flag 컬럼의 suffix를 변경할 수 있다. (default: _MOD)

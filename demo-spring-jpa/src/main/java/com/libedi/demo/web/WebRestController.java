@@ -1,11 +1,15 @@
 package com.libedi.demo.web;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.libedi.demo.domain.posts.Posts;
 import com.libedi.demo.domain.posts.PostsRepository;
+import com.libedi.demo.util.OptionalSupport;
+import com.libedi.demo.util.ResourceNotFoundException;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,11 +27,24 @@ public class WebRestController {
     }
 
     @PostMapping("/posts")
-    public void savePosts(final PostsSaveRequestDto dto) {
+    public void savePosts(@RequestBody final PostsSaveRequestDto dto) {
         log.info(dto.toString());
-        Posts posts = postsRepository.save(dto.toEntity());
-        posts.setTitle("수정된 타이틀");
-        postsRepository.flush();
+        postsRepository.save(dto.toEntity());
+    }
+
+    @PutMapping("/posts/{id}")
+    public void updatePosts(@PathVariable final long id, @RequestBody final PostsSaveRequestDto dto) {
+        dto.setId(id);
+        log.info(dto.toString());
+        OptionalSupport.of(postsRepository.findById(id)).ifPresentOrElse(p -> {
+            p.setTitle(dto.getTitle());
+            p.setAuthor(dto.getAuthor());
+            p.setContent(dto.getContent());
+            p.setTime(dto.getTime());
+            postsRepository.save(p);
+        }, () -> {
+            throw new ResourceNotFoundException();
+        });
     }
 
 }
