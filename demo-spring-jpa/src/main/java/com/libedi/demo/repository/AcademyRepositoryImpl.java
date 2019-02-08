@@ -1,4 +1,4 @@
-package com.libedi.demo.domain.repository;
+package com.libedi.demo.repository;
 
 import static com.libedi.demo.domain.QAcademy.academy;
 

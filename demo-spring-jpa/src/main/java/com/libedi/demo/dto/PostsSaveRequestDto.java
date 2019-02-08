@@ -1,4 +1,4 @@
-package com.libedi.demo.web;
+package com.libedi.demo.dto;
 
 import java.time.LocalDateTime;
 

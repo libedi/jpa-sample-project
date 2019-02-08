@@ -1,4 +1,4 @@
-package com.libedi.demo.domain.repository;
+package com.libedi.demo.repository;
 
 import java.util.List;
 

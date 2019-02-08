@@ -1,4 +1,4 @@
-package com.libedi.demo.domain.repository;
+package com.libedi.demo.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -12,7 +12,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.libedi.demo.domain.Academy;
-import com.libedi.demo.domain.repository.support.AcademyRepositorySupport;
+import com.libedi.demo.repository.AcademyRepository;
+import com.libedi.demo.repository.support.AcademyRepositorySupport;
 
 /**
  * AcademyRepositoryTest

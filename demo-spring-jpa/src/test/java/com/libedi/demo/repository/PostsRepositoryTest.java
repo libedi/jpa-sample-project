@@ -1,4 +1,4 @@
-package com.libedi.demo.domain.repository;
+package com.libedi.demo.repository;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertNotNull;
@@ -18,7 +18,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.libedi.demo.domain.Posts;
-import com.libedi.demo.domain.repository.PostsRepository;
+import com.libedi.demo.repository.PostsRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
