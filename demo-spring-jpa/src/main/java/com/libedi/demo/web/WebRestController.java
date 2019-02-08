@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.libedi.demo.dto.PostsSaveRequestDto;
 import com.libedi.demo.repository.PostsRepository;
+import com.libedi.demo.transform.PostsTransformer;
 import com.libedi.demo.util.OptionalSupport;
 import com.libedi.demo.util.ResourceNotFoundException;
 
@@ -30,7 +31,7 @@ public class WebRestController {
     @PostMapping("/posts")
     public void savePosts(@RequestBody final PostsSaveRequestDto dto) {
         log.info(dto.toString());
-        postsRepository.save(dto.toEntity());
+        postsRepository.save(PostsTransformer.transform(dto));
     }
 
     @PutMapping("/posts/{id}")
