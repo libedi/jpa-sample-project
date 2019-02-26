@@ -9,9 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.libedi.demo.dto.PostsSaveRequestDto;
 import com.libedi.demo.repository.PostsRepository;
+import com.libedi.demo.service.PostService;
 import com.libedi.demo.transform.PostsTransformer;
-import com.libedi.demo.util.OptionalSupport;
-import com.libedi.demo.util.ResourceNotFoundException;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +19,8 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 @Slf4j
 public class WebRestController {
+
+    private final PostService postService;
 
     private final PostsRepository postsRepository;
 
@@ -38,15 +39,7 @@ public class WebRestController {
     public void updatePosts(@PathVariable final long id, @RequestBody final PostsSaveRequestDto dto) {
         dto.setId(id);
         log.info(dto.toString());
-        OptionalSupport.of(postsRepository.findById(id)).ifPresentOrElse(p -> {
-            p.setTitle(dto.getTitle());
-            p.setAuthor(dto.getAuthor());
-            p.setContent(dto.getContent());
-            p.setTime(dto.getTime());
-            postsRepository.save(p);
-        }, () -> {
-            throw new ResourceNotFoundException();
-        });
+        postService.update(dto);
     }
 
 }
