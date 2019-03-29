@@ -37,6 +37,10 @@ dependencies {
     
     apt 'org.projectlombok:lombok:1.18.4'
     
+    // https://mvnrepository.com/artifact/org.assertj/assertj-core
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.12.2'
+    
+    
 }
 
 // In this section you declare where to find the dependencies of your project
