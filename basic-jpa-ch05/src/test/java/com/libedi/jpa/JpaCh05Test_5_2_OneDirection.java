@@ -121,8 +121,7 @@ public class JpaCh05Test_5_2_OneDirection {
     public void test_5_2_2_findByJPQL() {
         test_5_2_1_save();
 
-//        String jpql = "select m from Member m join m.team t where t.name=:teamName";
-        String jpql = "select m from MEMBER m join m.team t where t.name=:teamName";
+        String jpql = "select m from MemberByUnidirect m join m.team t where t.name=:teamName";
         List<MemberByUnidirect> resultList = em.createQuery(jpql, MemberByUnidirect.class)
                 .setParameter("teamName", "팀1")
                 .getResultList();

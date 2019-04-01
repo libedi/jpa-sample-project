@@ -7,6 +7,7 @@ package com.libedi.jpa.entity.unidirect;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +18,8 @@ import lombok.Setter;
  * @author Sang-jun, Park
  * @since 2019. 03. 29
  */
-@Entity(name = "TEAM")
+@Entity
+@Table(name = "TEAM")
 @Getter @Setter
 public class TeamByUnidirect {
 

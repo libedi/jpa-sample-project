@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -19,7 +20,8 @@ import lombok.Setter;
  * @author Sang-jun, Park
  * @since 2019. 03. 29
  */
-@Entity(name = "MEMBER")
+@Entity
+@Table(name = "MEMBER")
 @Getter @Setter
 public class MemberByUnidirect {
 
