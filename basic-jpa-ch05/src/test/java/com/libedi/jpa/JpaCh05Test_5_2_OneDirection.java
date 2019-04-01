@@ -22,8 +22,8 @@ import org.junit.rules.TestRule;
 import org.junit.runners.MethodSorters;
 import org.junit.runners.model.Statement;
 
-import com.libedi.jpa.entity.Member;
-import com.libedi.jpa.entity.Team;
+import com.libedi.jpa.entity.unidirect.MemberByUnidirect;
+import com.libedi.jpa.entity.unidirect.TeamByUnidirect;
 
 /**
  * JpaCh05Test_5_2_OneDirection : 단방향 연관관계
@@ -51,14 +51,14 @@ public class JpaCh05Test_5_2_OneDirection {
          * A -> B (a.b)
          * B -> A (b.a)
          */
-        Member member1 = new Member("member1", "회원1");
-        Member member2 = new Member("member2", "회원2");
-        Team team1 = new Team("team1", "팀1");
+        MemberByUnidirect member1 = new MemberByUnidirect("member1", "회원1");
+        MemberByUnidirect member2 = new MemberByUnidirect("member2", "회원2");
+        TeamByUnidirect team1 = new TeamByUnidirect("team1", "팀1");
 
         member1.setTeam(team1);
         member2.setTeam(team1);
 
-        Team findTeam = member1.getTeam();
+        TeamByUnidirect findTeam = member1.getTeam();
     }
 
     @Rule
@@ -87,16 +87,16 @@ public class JpaCh05Test_5_2_OneDirection {
 //    @Test
     public void test_5_2_1_save() {
         // 팀1 저장
-        Team team1 = new Team("team1", "팀1");
+        TeamByUnidirect team1 = new TeamByUnidirect("team1", "팀1");
         em.persist(team1);
 
         // 회원1 저장
-        Member member1 = new Member("member1", "회원1");
+        MemberByUnidirect member1 = new MemberByUnidirect("member1", "회원1");
         em.persist(member1);
         member1.setTeam(team1);
 
         // 회원2 저장
-        Member member2 = new Member("member2", "회원2");
+        MemberByUnidirect member2 = new MemberByUnidirect("member2", "회원2");
         member2.setTeam(team1);
         em.persist(member2);
     }
@@ -106,8 +106,8 @@ public class JpaCh05Test_5_2_OneDirection {
     public void test_5_2_2_findByObjectGraph() {
         test_5_2_1_save();
 
-        Member member = em.find(Member.class, "member1");
-        Team team = member.getTeam();
+        MemberByUnidirect member = em.find(MemberByUnidirect.class, "member1");
+        TeamByUnidirect team = member.getTeam();
 
         assertThat(member).isNotNull();
         assertThat(team).isNotNull();
@@ -121,8 +121,9 @@ public class JpaCh05Test_5_2_OneDirection {
     public void test_5_2_2_findByJPQL() {
         test_5_2_1_save();
 
-        String jpql = "select m from Member m join m.team t where t.name=:teamName";
-        List<Member> resultList = em.createQuery(jpql, Member.class)
+//        String jpql = "select m from Member m join m.team t where t.name=:teamName";
+        String jpql = "select m from MEMBER m join m.team t where t.name=:teamName";
+        List<MemberByUnidirect> resultList = em.createQuery(jpql, MemberByUnidirect.class)
                 .setParameter("teamName", "팀1")
                 .getResultList();
 
@@ -137,11 +138,11 @@ public class JpaCh05Test_5_2_OneDirection {
         test_5_2_1_save();
 
         // 새로운 팀2
-        Team team2 = new Team("team2", "팀2");
+        TeamByUnidirect team2 = new TeamByUnidirect("team2", "팀2");
         em.persist(team2);
 
         // 회원1에 새로운팀 2 설정
-        Member member1 = em.find(Member.class, "member1");
+        MemberByUnidirect member1 = em.find(MemberByUnidirect.class, "member1");
         member1.setTeam(team2);
     }
 
@@ -150,7 +151,7 @@ public class JpaCh05Test_5_2_OneDirection {
     public void test_5_2_4_deleateRelation() {
         test_5_2_1_save();
 
-        Member member1 = em.find(Member.class, "member1");
+        MemberByUnidirect member1 = em.find(MemberByUnidirect.class, "member1");
         member1.setTeam(null);
     }
 
@@ -163,9 +164,9 @@ public class JpaCh05Test_5_2_OneDirection {
          */
         test_5_2_1_save();
 
-        Member member1 = em.find(Member.class, "member1");
-        Member member2 = em.find(Member.class, "member2");
-        Team team1 = em.find(Team.class, "team1");
+        MemberByUnidirect member1 = em.find(MemberByUnidirect.class, "member1");
+        MemberByUnidirect member2 = em.find(MemberByUnidirect.class, "member2");
+        TeamByUnidirect team1 = em.find(TeamByUnidirect.class, "team1");
         member1.setTeam(null);
         member2.setTeam(null);
         em.remove(team1);
