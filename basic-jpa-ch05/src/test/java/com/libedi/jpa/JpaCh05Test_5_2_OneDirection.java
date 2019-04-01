@@ -92,8 +92,8 @@ public class JpaCh05Test_5_2_OneDirection {
 
         // 회원1 저장
         MemberByUnidirect member1 = new MemberByUnidirect("member1", "회원1");
-        em.persist(member1);
         member1.setTeam(team1);
+        em.persist(member1);
 
         // 회원2 저장
         MemberByUnidirect member2 = new MemberByUnidirect("member2", "회원2");
