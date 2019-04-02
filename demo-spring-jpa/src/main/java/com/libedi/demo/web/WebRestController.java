@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.libedi.demo.dto.PostsSaveRequestDto;
+import com.libedi.demo.dto.TestDto;
 import com.libedi.demo.repository.PostsRepository;
 import com.libedi.demo.service.PostService;
+import com.libedi.demo.service.TestService;
+import com.libedi.demo.service.TxService;
 import com.libedi.demo.transform.PostsTransformer;
 
 import lombok.RequiredArgsConstructor;
@@ -24,13 +27,17 @@ public class WebRestController {
 
     private final PostsRepository postsRepository;
 
+    private final TxService txService;
+
+    private final TestService testService;
+
     @GetMapping("/hello")
     public String hello() {
         return "HelloWorld";
     }
 
     @PostMapping("/posts")
-    public void savePosts(@RequestBody final PostsSaveRequestDto dto) {
+    public void savePosts(final PostsSaveRequestDto dto) {
         log.info(dto.toString());
         postsRepository.save(PostsTransformer.transform(dto));
     }
@@ -40,6 +47,29 @@ public class WebRestController {
         dto.setId(id);
         log.info(dto.toString());
         postService.update(dto);
+    }
+
+    @GetMapping("/test/{idx}")
+    public void transactionalTest(@PathVariable int idx) {
+        switch(idx) {
+            case 1:
+                txService.readOnly();
+                break;
+            case 2:
+                txService.notReadOnly();
+                break;
+        }
+
+    }
+
+    @PostMapping("/test/entity")
+    public void saveTest(@RequestBody final TestDto dto) {
+        testService.save(dto);
+    }
+
+    @GetMapping("/test-entity/{id}")
+    public TestDto getTestEntity(@PathVariable long id) {
+        return testService.getTestEntity(id);
     }
 
 }

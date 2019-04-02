@@ -1,6 +1,7 @@
 package com.libedi.demo.dto;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -25,6 +26,9 @@ public class PostsSaveRequestDto {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")    /* RequestBody일 경우 필요 */
     private LocalDateTime time;
+
+    @DateTimeFormat
+    private Date timestamp;
 
     @Builder
     private PostsSaveRequestDto(Long id, String title, String content, String author, LocalDateTime time) {
