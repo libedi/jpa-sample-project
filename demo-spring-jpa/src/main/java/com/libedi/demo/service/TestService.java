@@ -39,4 +39,12 @@ public class TestService {
     public TestDto getTestEntity(long id) {
         return testRepository.findById(id).map(TestTransformer::transform).get();
     }
+
+    /**
+     * @param id
+     */
+    @Transactional
+    public void delete(long id) {
+        testRepository.findById(id).ifPresent(testRepository::delete);
+    }
 }

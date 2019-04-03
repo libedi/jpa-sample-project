@@ -1,5 +1,6 @@
 package com.libedi.demo.web;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -70,6 +71,11 @@ public class WebRestController {
     @GetMapping("/test-entity/{id}")
     public TestDto getTestEntity(@PathVariable long id) {
         return testService.getTestEntity(id);
+    }
+
+    @DeleteMapping("/test-entity/{id}")
+    public void deleteTest(@PathVariable long id) {
+        testService.delete(id);
     }
 
 }

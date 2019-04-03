@@ -46,6 +46,11 @@ public class TestEntity {
 
     private String name;
 
+    /*
+     * @ElementCollection 기본 FetchType은 LAZY이다.
+     * 따라서 EAGER로 변경하면 left join으로 가져오고,
+     * 기본 LAZY설정시 따로 따로 쿼리가 실행되서 가져온다.
+     */
     @ElementCollection
     @CollectionTable(name = "test_enum", joinColumns = @JoinColumn(name = "test_id"))
     @Column(name = "enum_name")
