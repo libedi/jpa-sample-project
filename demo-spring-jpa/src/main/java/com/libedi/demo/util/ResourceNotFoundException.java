@@ -3,7 +3,7 @@ package com.libedi.demo.util;
 /**
  * ResourceNotFoundException
  *
- * @author Sang-jun, Park (libedi@linecorp.com)
+ * @author Sang-jun, Park
  * @since 2019. 02. 07
  */
 public class ResourceNotFoundException extends RuntimeException {
