@@ -25,7 +25,7 @@ import lombok.ToString;
 /**
  * TestEntity
  *
- * @author Sang-jun, Park (libedi@linecorp.com)
+ * @author Sang-jun, Park
  * @since 2019. 04. 02
  */
 @Entity

@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * TxService
  *
- * @author Sang-jun, Park (libedi@linecorp.com)
+ * @author Sang-jun, Park
  * @since 2019. 03. 27
  */
 @Slf4j

@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 /**
  * TestService
  *
- * @author Sang-jun, Park (libedi@linecorp.com)
+ * @author Sang-jun, Park
  * @since 2019. 04. 02
  */
 @Service
