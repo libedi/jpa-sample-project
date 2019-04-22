@@ -8,8 +8,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.libedi.demo.domain.Child;
+import com.libedi.demo.domain.Parent;
 import com.libedi.demo.dto.PostsSaveRequestDto;
 import com.libedi.demo.dto.TestDto;
+import com.libedi.demo.repository.ChildRepository;
+import com.libedi.demo.repository.ParentRepository;
 import com.libedi.demo.repository.PostsRepository;
 import com.libedi.demo.service.PostService;
 import com.libedi.demo.service.TestService;
@@ -31,6 +35,10 @@ public class WebRestController {
     private final TxService txService;
 
     private final TestService testService;
+
+    private final ParentRepository parentRepository;
+
+    private final ChildRepository childRepository;
 
     @GetMapping("/hello")
     public String hello() {
@@ -76,6 +84,22 @@ public class WebRestController {
     @DeleteMapping("/test-entity/{id}")
     public void deleteTest(@PathVariable long id) {
         testService.delete(id);
+    }
+
+    @PostMapping("/parent")
+    public Parent saveParent() {
+        return parentRepository.save(Parent.builder().name("parent name").build());
+    }
+
+    @PostMapping("/child/{parentId}")
+    public Child saveChild(@PathVariable long parentId) {
+        return childRepository.save(Child.builder().content("child content")
+                .parent(parentRepository.findById(parentId).get()).build());
+    }
+
+    @GetMapping("/parent/{parentId}")
+    public Parent getParent(@PathVariable long parentId) {
+        return parentRepository.findById(parentId).get();
     }
 
 }
