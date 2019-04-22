@@ -25,6 +25,7 @@ public class TestDto {
     private Long id;
     private String name;
     private Set<TestEnum> enums;
+    private String sId;
 
     @Builder
     public TestDto(Long id, String name, Set<TestEnum> enums) {

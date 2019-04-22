@@ -9,9 +9,9 @@ import java.util.Objects;
  * @since 2019. 01. 23
  */
 @FunctionalInterface
-public interface RunnableWithException {
+public interface RunnableWithException<E extends Exception> {
 
-    void run() throws Exception;
+    void run() throws E;
 
     default Runnable wrapper() {
         return () -> {
@@ -23,7 +23,7 @@ public interface RunnableWithException {
         };
     }
 
-    static Runnable wrapper(final RunnableWithException runnable) {
+    static Runnable wrapper(final RunnableWithException<?> runnable) {
         return Objects.requireNonNull(runnable).wrapper();
     }
 }
