@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2019 LINE Corporation. All rights reserved.
- * LINE Corporation PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
- */
 package com.libedi.jpa.onetoone.target;
 
 import javax.persistence.Column;
@@ -21,7 +17,7 @@ import lombok.Setter;
  * : 일대일 대상 테이블에 외래키. 대상테이블은 LOCKER.
  * : 연관관계의 주인은 locker이므로 mappedBy를 선언했다.
  *
- * @author Sang-jun, Park (libedi@linecorp.com)
+ * @author Sang-jun, Park
  * @since 2019. 04. 29
  */
 @Entity

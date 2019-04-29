@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2019 LINE Corporation. All rights reserved.
- * LINE Corporation PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
- */
 package com.libedi.jpa.onetoone.main;
 
 import javax.persistence.Column;
@@ -19,7 +15,7 @@ import lombok.Setter;
  * Member
  * : 일대일 주 테이블에 외래키. 주 테이블은 MEMBER.
  *
- * @author Sang-jun, Park (libedi@linecorp.com)
+ * @author Sang-jun, Park
  * @since 2019. 04. 29
  */
 @Entity
