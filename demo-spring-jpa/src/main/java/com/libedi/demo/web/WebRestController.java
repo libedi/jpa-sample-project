@@ -1,12 +1,15 @@
 package com.libedi.demo.web;
 
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.libedi.demo.domain.Child;
 import com.libedi.demo.domain.Parent;
@@ -100,6 +103,13 @@ public class WebRestController {
     @GetMapping("/parent/{parentId}")
     public Parent getParent(@PathVariable long parentId) {
         return parentRepository.findById(parentId).get();
+    }
+
+    @PostMapping(value = "/test/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public void upload(@RequestPart MultipartFile file, @RequestPart PostsSaveRequestDto dto, @RequestPart TestDto test) {
+        System.out.println(dto.toString());
+        System.out.println(test.toString());
+        System.out.println(file.toString());
     }
 
 }
