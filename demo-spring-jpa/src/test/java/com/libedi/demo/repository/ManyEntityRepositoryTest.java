@@ -70,4 +70,19 @@ public class ManyEntityRepositoryTest {
             actual.forEach(m -> System.out.println(m.toString()));
         }
     }
+
+    @Test
+    public void test3() {
+        // given
+        Long id = 1L;
+
+        // when
+        List<ManyEntity> actual = manyEntityRepository.findByOneOneId(id);
+
+        // then
+        assertThat(actual).isNotNull();
+        if(CollectionUtils.isEmpty(actual) == false) {
+            actual.forEach(m -> System.out.println(m.toString()));
+        }
+    }
 }

@@ -1,5 +1,7 @@
 package com.libedi.demo.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.libedi.demo.domain.ManyEntity;
@@ -12,4 +14,8 @@ import com.libedi.demo.domain.ManyEntity;
  */
 public interface ManyEntityRepository extends JpaRepository<ManyEntity, Long>, ManyEntityRepositoryCustom {
 
+    /*
+     * ManyEntity.one.oneId
+     */
+    List<ManyEntity> findByOneOneId(Long oneId);
 }
