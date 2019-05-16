@@ -1,4 +1,4 @@
-package com.libedi.jpa.manytomany;
+package com.libedi.jpa.manytomany.simplejointable;
 
 import static org.junit.Assert.fail;
 
@@ -13,6 +13,9 @@ import org.junit.Test;
 import org.junit.rules.TestRule;
 import org.junit.runners.MethodSorters;
 import org.junit.runners.model.Statement;
+
+import com.libedi.jpa.manytomany.simplejointable.Member;
+import com.libedi.jpa.manytomany.simplejointable.Product;
 
 /**
  * ManyToManyTest

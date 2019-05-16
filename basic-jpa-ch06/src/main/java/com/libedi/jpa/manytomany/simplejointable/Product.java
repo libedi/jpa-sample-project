@@ -1,4 +1,4 @@
-package com.libedi.jpa.manytomany;
+package com.libedi.jpa.manytomany.simplejointable;
 
 import java.util.ArrayList;
 import java.util.List;
