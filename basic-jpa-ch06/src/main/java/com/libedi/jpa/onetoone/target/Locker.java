@@ -18,7 +18,7 @@ import lombok.Setter;
  * @author Sang-jun, Park
  * @since 2019. 04. 29
  */
-@Entity
+@Entity(name = "Locker_target")
 @Table(name = "LOCKER_TARGET")
 @Getter @Setter
 public class Locker {

@@ -20,7 +20,7 @@ import lombok.Setter;
  * @author Sang-jun, Park
  * @since 2019. 04. 29
  */
-@Entity
+@Entity(name = "Member_target")
 @Table(name = "MEMBER_TARGET")
 @Getter @Setter
 public class Member {
