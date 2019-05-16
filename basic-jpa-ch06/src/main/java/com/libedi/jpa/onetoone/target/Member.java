@@ -7,8 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.libedi.jpa.onetoone.main.Locker;
-
 import lombok.Getter;
 import lombok.Setter;
 
