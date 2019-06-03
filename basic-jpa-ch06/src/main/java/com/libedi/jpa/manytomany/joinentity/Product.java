@@ -25,7 +25,7 @@ public class Product {
     /*
      * 연결 엔티티를 사용하므로,
      * 상품 엔티티에서 회원상품 엔티티로 객체 그래프 탐색기능이 필요하지 않다고 판단하여
-     * 연관관계를 만들지 않아다.
+     * 연관관계를 만들지 않았다.
      */
 //    @ManyToMany(mappedBy = "products")  // 역방향 추가
 //    private List<Member> members = new ArrayList<>();
