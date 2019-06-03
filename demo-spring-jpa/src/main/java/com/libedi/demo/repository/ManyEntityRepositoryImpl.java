@@ -19,9 +19,10 @@ public class ManyEntityRepositoryImpl implements ManyEntityRepositoryCustom {
 
     private final JPAQueryFactory queryFactory;
 
+    private final QManyEntity qManyEntity = QManyEntity.manyEntity;
+
     @Override
     public List<ManyEntity> findByOneEntityId(Long id) {
-        final QManyEntity qManyEntity = QManyEntity.manyEntity;
         return queryFactory.selectFrom(qManyEntity)
                 .where(qManyEntity.one.oneId.eq(id))
                 .fetch();
@@ -29,7 +30,6 @@ public class ManyEntityRepositoryImpl implements ManyEntityRepositoryCustom {
 
     @Override
     public List<ManyEntity> findByOneEntityName(String name) {
-        final QManyEntity qManyEntity = QManyEntity.manyEntity;
         return queryFactory.selectFrom(qManyEntity)
                 .where(qManyEntity.one.oneName.eq(name))
                 .fetch();
