@@ -57,3 +57,14 @@ sourceSets {
     }
   }
 }
+
+// Gradle 5.0+
+/*
+compileQuerydsl{
+    options.annotationProcessorPath = configurations.querydsl
+}
+
+configurations {
+    querydsl.extendsFrom compileClasspath
+}
+*/
