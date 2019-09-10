@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2019 LINE Corporation. All rights reserved.
- * LINE Corporation PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
- */
 package com.libedi.demo.domain.common;
 
 import java.time.LocalDateTime;
@@ -22,7 +18,7 @@ import lombok.ToString;
 /**
  * BaseAuditEntity
  *
- * @author Sang-jun, Park (libedi@linecorp.com)
+ * @author Sang-jun, Park
  * @since 2019. 09. 10
  */
 @MappedSuperclass
