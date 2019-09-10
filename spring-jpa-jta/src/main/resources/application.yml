@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: spring-jpa-jta
+    
+customer:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/test1
+    name: sa
+    password:
+    
+order:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/test2
+    name: sa
+    password: 

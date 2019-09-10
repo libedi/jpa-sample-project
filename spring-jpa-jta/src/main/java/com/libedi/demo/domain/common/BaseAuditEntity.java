@@ -1,0 +1,50 @@
+/*
+ * Copyright (c) 2019 LINE Corporation. All rights reserved.
+ * LINE Corporation PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ */
+package com.libedi.demo.domain.common;
+
+import java.time.LocalDateTime;
+
+import javax.persistence.Column;
+import javax.persistence.EntityListeners;
+import javax.persistence.MappedSuperclass;
+
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import lombok.Getter;
+import lombok.ToString;
+
+/**
+ * BaseAuditEntity
+ *
+ * @author Sang-jun, Park (libedi@linecorp.com)
+ * @since 2019. 09. 10
+ */
+@MappedSuperclass
+@EntityListeners(AuditingEntityListener.class)
+@Getter
+@ToString
+public abstract class BaseAuditEntity {
+
+    @CreatedDate
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+    @LastModifiedDate
+    @Column(nullable = false)
+    private LocalDateTime updatedAt;
+
+    @CreatedBy
+    @Column(nullable = false, updatable = false)
+    private Long createdBy;
+
+    @LastModifiedBy
+    @Column(nullable = false)
+    private Long updatedBy;
+
+}
