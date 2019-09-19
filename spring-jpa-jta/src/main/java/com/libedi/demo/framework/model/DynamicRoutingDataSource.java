@@ -11,7 +11,7 @@ import com.libedi.demo.framework.type.DataSourceType;
  * @author Sang-jun, Park
  * @since 2019. 09. 10
  */
-public class CustomRoutingDataSource extends AbstractRoutingDataSource {
+public class DynamicRoutingDataSource extends AbstractRoutingDataSource {
 
     @Override
     protected Object determineCurrentLookupKey() {

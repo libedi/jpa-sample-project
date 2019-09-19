@@ -2,14 +2,33 @@ spring:
   application:
     name: spring-jpa-jta
     
+  h2:
+    console:
+      enabled: true
+  
+  jpa:
+    properties:
+      hibernate:
+        show_sql:
+          true
+        format_sql:
+          true
+        use_sql_comments:
+          true
+        hbm2ddl:
+          auto: create
+  jta:
+    enabled:
+      true
+      
 customer:
   datasource:
-    url: jdbc:h2:tcp://localhost/~/test1
+    url: jdbc:h2:mem:customer
     name: sa
     password:
     
 order:
   datasource:
-    url: jdbc:h2:tcp://localhost/~/test2
+    url: jdbc:h2:mem:order
     name: sa
     password: 

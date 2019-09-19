@@ -12,14 +12,13 @@ import org.springframework.boot.jta.atomikos.AtomikosDataSourceBean;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.libedi.demo.framework.model.CustomRoutingDataSource;
 import com.libedi.demo.framework.model.DataSourceProperty;
+import com.libedi.demo.framework.model.DynamicRoutingDataSource;
 import com.libedi.demo.framework.type.DataSourceType;
 import com.libedi.demo.framework.type.PersistenceUnits;
 
@@ -30,7 +29,6 @@ import com.libedi.demo.framework.type.PersistenceUnits;
  * @since 2019. 09. 10
  */
 @Configuration
-@EnableJpaAuditing(auditorAwareRef = "auditorAwareImpl")
 @EnableJpaRepositories(basePackages = "com.libedi.demo.domain.order",
         entityManagerFactoryRef = "orderEntityManagerFactory", transactionManagerRef = "transactionManager")
 @EnableTransactionManagement
@@ -55,7 +53,7 @@ public class OrderDataSourceConfiguration {
         dataSourceMap.put(DataSourceType.WRITABLE, masterDataSource);
         dataSourceMap.put(DataSourceType.READONLY, createDataSource(orderDataSourceSlaveConfig()));
 
-        final CustomRoutingDataSource routingDataSource = new CustomRoutingDataSource();
+        final DynamicRoutingDataSource routingDataSource = new DynamicRoutingDataSource();
         routingDataSource.setTargetDataSources(dataSourceMap);
         routingDataSource.setDefaultTargetDataSource(masterDataSource);
         return new LazyConnectionDataSourceProxy(routingDataSource);
