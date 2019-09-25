@@ -31,4 +31,4 @@ order:
   datasource:
     url: jdbc:h2:mem:order
     name: sa
-    password: 
+    password:
