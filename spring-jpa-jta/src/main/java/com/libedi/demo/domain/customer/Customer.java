@@ -20,7 +20,7 @@ import lombok.Setter;
  * @since 2019. 09. 10
  */
 @Entity
-@Table(name = "customer")
+@Table(name = "customer_test")
 @Getter
 @Setter
 public class Customer extends BaseAuditEntity {
