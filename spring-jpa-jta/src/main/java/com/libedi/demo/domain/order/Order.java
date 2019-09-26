@@ -11,6 +11,7 @@ import com.libedi.demo.domain.common.BaseAuditEntity;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -21,6 +22,7 @@ import lombok.Setter;
  */
 @Entity
 @Table(name = "order_test")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Setter
 public class Order extends BaseAuditEntity {
