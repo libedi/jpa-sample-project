@@ -48,11 +48,6 @@ public class CustomerDataSourceConfiguration {
         return new DataSourceProperty();
     }
 
-    @Bean
-    public DataSource customerDataSourceMaster() {
-        return createDataSource(customerDataSourceMasterConfig(), "customerDataSourceMaster");
-    }
-
     @Primary
     @Bean
     public DataSource customerDataSource() {
