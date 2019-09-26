@@ -4,21 +4,21 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.libedi.demo.service.TestService;
+import com.libedi.demo.service.SampleService;
 
 import lombok.RequiredArgsConstructor;
 
 /**
- * TestController
+ * SampleController
  *
  * @author Sang-jun, Park
  * @since 2019. 09. 10
  */
 @RestController
 @RequiredArgsConstructor
-public class TestController {
+public class SampleController {
 
-    private final TestService service;
+    private final SampleService service;
 
     @PostMapping("/test/{testCase}")
     public void test(@PathVariable("testCase") int i) {

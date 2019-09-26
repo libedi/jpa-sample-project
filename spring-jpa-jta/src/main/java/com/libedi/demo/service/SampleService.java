@@ -11,7 +11,7 @@ import com.libedi.demo.repository.order.OrderRepository;
 import lombok.RequiredArgsConstructor;
 
 /**
- * TestService
+ * SampleService
  *
  * @author Sang-jun, Park
  * @since 2019. 09. 10
@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class TestService {
+public class SampleService {
 
     private final CustomerRepository customerRepository;
 
