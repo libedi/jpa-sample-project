@@ -25,6 +25,14 @@ public class SampleService {
 
     private final OrderRepository orderRepository;
 
+    public Customer findOneCustomer() {
+        return customerRepository.findAll().stream().findFirst().orElse(null);
+    }
+
+    public Order findOneOrder() {
+        return orderRepository.findAll().stream().findFirst().orElse(null);
+    }
+
     @Transactional
     public void allCommit() {
         customerRepository.save(Customer.builder().name("customer1").build());
