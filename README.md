@@ -42,28 +42,28 @@ Persistence.createEntityManagerFactory("jpatest");
 - 엔티티 매니저로 엔티티를 저장/조회하면, 엔티티 매니저는 영속성 컨텍스트에 엔티티를 보관/관리한다.
 - 엔티티 매니저를 생성할 때 하나 만들어진다.
 - 엔티티 매니저를 통해 접근 및 관리.
-~~~
+~~~java
 EntityManage em = emf.createEntityManager();
 em.persist(member);
 ~~~
 ## 6. 엔티티 생명주기
 - 비영속 : 영속성 컨텍스트와 전혀 관계없는 순수 객체 상태.  
-`
+```java
 Member member = new Member();
-`
+```
 - 영속 : 영속성 컨텍스트가 관리하는 상태
-~~~
+~~~java
 em.persist()
-em.find() / JPQL
+em.find() // or JPQL
 em.merge()
 ~~~
 - 준영속 : 영속성 컨텍스트에서 분리된 상태
-~~~
+~~~java
 em.detach()
 em.clear()
 em.close()
 ~~~
 - 삭제 :  엔티티를 영속성 컨텍스트와 데이터베이스에서 삭제한다.  
-`
+```java
 em.remove(member);
-`
+```
